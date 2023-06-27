@@ -1,0 +1,56 @@
+<div class="page">
+        <mat-card class="card">
+            <mat-card-header class="container">
+                <img mat-card-image [src]="champ.icon" [alt]="champ.name">
+                <div class="traitcontent">
+                    <ul class="no-bullets" *ngFor="let trait of champ.traits">
+                        <li>{{trait}}</li>
+                    </ul>
+                </div>
+            </mat-card-header>
+        
+            <mat-card-content class="info-content">
+                <mat-card-title>{{champ.name}}</mat-card-title>
+                <mat-card-title>{{champ.cost}}</mat-card-title>
+            </mat-card-content>
+            <mat-card-footer></mat-card-footer>
+        </mat-card>
+
+        <mat-card class="card">
+            <mat-card-header>Ability</mat-card-header>
+            <mat-card-content>
+                <img [src]="champ.ability.icon" [alt]="champ.ability.name">
+                <mat-card-title>{{champ.ability.name}}</mat-card-title>
+                <p>{{champ.ability.desc | abilitiesFormat:(champ.ability.variables)}}</p>
+            </mat-card-content>
+            <mat-card-footer></mat-card-footer>
+        </mat-card>
+   
+        <mat-card class="card">
+            <mat-card-header>{{champ.name}} Stats</mat-card-header>
+            <mat-card-content>
+                Health: {{champ.stats.hp}}<br>
+                Damage: {{champ.stats.damage}}<br>
+                DPS: {{champ.stats.critChance}}<br>
+                Armor: {{champ.stats.armor}}<br>
+                Speed: {{champ.stats.attackSpeed}}<br>
+                Mana: {{champ.stats.mana}}<br>
+                MR: {{champ.stats.magicResist}}<br>
+                Range:{{champ.stats.range}}<br>
+            </mat-card-content>
+            <mat-card-footer></mat-card-footer>
+        </mat-card>
+   
+        <mat-card class="card">
+            <mat-card-header> {{champ.name}} Synergies </mat-card-header>
+            <mat-card-content>
+                <app-synergies
+                class="synergies" 
+                [cName] = "champ.name"
+                [cTraits] ="champ.traits"
+                (newChampEvent)="updateChamp($event)"
+                ></app-synergies>
+            </mat-card-content>
+        </mat-card>
+  
+</div>

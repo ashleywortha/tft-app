@@ -1,0 +1,22 @@
+<mat-card class="card" *ngFor="let trait of traits">
+    <mat-card-header>
+        <mat-card-title>
+            <img mat-card-image [src]="trait.icon" [alt]="trait.name">
+            {{trait.name}}
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <span [innerHTML]="trait.desc | traitDesc:(trait.effects)"></span>
+    </mat-card-content>
+ 
+        <mat-card>
+            <mat-card-header> Champions </mat-card-header>
+            <mat-card-content>
+                <app-synergies 
+                [cTrait] ="trait.name"
+                ></app-synergies>
+            </mat-card-content>
+        </mat-card>
+
+</mat-card>
+

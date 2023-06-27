@@ -1,0 +1,24 @@
+    <mat-card class="card" *ngFor="let champ of cChamps" [ngStyle]="{'background-color': getColor(champ.cost)}">
+        <button 
+            (click)="setChampPage(champ)"
+            [routerLink]="['champion/', champ.name]"
+        >
+
+        
+        <mat-card-header class="container">
+            <img mat-card-image [src]="champ.icon" [alt]="champ.name">
+            <div class="traitcontent">
+                <ul class="no-bullets" *ngFor="let trait of champ.traits">
+                    <li>{{trait}}</li>
+                </ul>
+            </div>
+        </mat-card-header>
+    
+        <mat-card-content class="info-content">
+            <mat-card-title>{{champ.name}}</mat-card-title>
+            <mat-card-title>{{champ.cost}}</mat-card-title>
+        </mat-card-content>
+        <mat-card-footer></mat-card-footer>
+    </button>
+    </mat-card>
+

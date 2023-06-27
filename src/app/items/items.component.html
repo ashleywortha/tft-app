@@ -1,0 +1,37 @@
+<mat-chip-listbox>
+    <mat-chip-option selected (click)="filterItems('all')" >All Items</mat-chip-option>
+    <mat-chip-option (click)="filterItems('basic')">Basic Item</mat-chip-option>
+    <mat-chip-option (click)="filterItems('combined')">Combined Items</mat-chip-option>
+    <mat-chip-option (click)="filterItems('consume')">Consumable Items</mat-chip-option>
+    <mat-chip-option (click)="filterItems('nocraft')">Non-Craftable Items</mat-chip-option>
+    <mat-chip-option (click)="filterItems('gadge')">Gadgeteen Items</mat-chip-option>
+    <mat-chip-option (click)="filterItems('ornn')">Ornn's Items</mat-chip-option>
+    <mat-chip-option (click)="filterItems('radiant')">Radiant Items</mat-chip-option>
+</mat-chip-listbox>
+    
+
+<table mat-table [dataSource]="filteredItems" class="mat-elevation-z8">
+    <ng-container matColumnDef="item">
+        <th mat-header-cell *matHeaderCellDef>Item</th>
+        <td mat-cell *matCellDef="let item"> 
+            <img [src]="item.icon" [alt]="item.name">
+            {{item.name}}
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="desc">
+        <th mat-header-cell *matHeaderCellDef>Item Bonus</th>
+        <td mat-cell *matCellDef="let item" [innerHTML] = "item.desc | desc:(item.effects)"></td>
+    </ng-container>
+
+    <ng-container matColumnDef="recipe">
+            <th mat-header-cell *matHeaderCellDef >Recipe</th>
+            <td mat-cell  *matCellDef="let item"> <img *ngFor="let comp of item.composition"[src]="comp|icon:(items)" [alt]="comp"></td>  
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="combinedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: combinedColumns;"></tr>
+
+
+</table>

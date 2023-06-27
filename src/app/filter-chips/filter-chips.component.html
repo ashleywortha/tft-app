@@ -1,0 +1,14 @@
+   
+<div class="organize">
+        <mat-chip-option  *ngFor="let trait of traits"
+        (click)="filterByTrait(trait.name)">
+            {{trait.name}}
+            <img matChipAvatar [src]="trait.icon" [alt]="trait.apiName">
+        </mat-chip-option>
+        <div *ngIf="champs">
+            <app-champs class="container" [cChamps]="filteredChamps"></app-champs>
+        </div>
+</div>
+   
+  
+

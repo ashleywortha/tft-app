@@ -1,0 +1,25 @@
+<!-- <p *ngFor="let champ of sChamps">
+    {{champ.name}}
+</p> -->
+
+<!-- <mat-card *ngFor="let champ of sChamps">
+    <mat-card-header>
+        <img class="cropped" mat-card-avatar [src]="champ.icon" [alt]="champ.name">
+    </mat-card-header>
+    <mat-card-content>
+        {{champ.name}}
+    </mat-card-content>
+</mat-card> -->
+
+<div *ngFor="let champ of sChamps" >
+    <button
+[routerLink]="['../../', 'champion' , champ.name]"
+(click)="setChampPage(champ)"
+>
+
+    <img class="cropped" mat-card-avatar [src]="champ.icon" [alt]="champ.name">
+    <p>{{champ.name}}</p>
+</button>
+</div>
+
+
