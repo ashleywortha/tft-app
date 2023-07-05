@@ -6,6 +6,7 @@ import { FilterChipsComponent } from './filter-chips/filter-chips.component';
 import { ItemsComponent } from './items/items.component';
 import { TraitsComponent } from './traits/traits.component';
 import { TeamBuilderComponent } from './team-builder/team-builder.component';
+import { PlaybooksComponent } from './playbooks/playbooks.component';
 
 const routes: Routes = [
   {path:'', component:FilterChipsComponent, pathMatch:'full'},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path:'items/:name', component:ItemsComponent},
   {path:'items', component:ItemsComponent},
   {path:'champpage', component:ChampPageComponent},
-  {path:'builder', component: TeamBuilderComponent}
+  {path:'builder', component: TeamBuilderComponent},
+  {path:'legends', component:PlaybooksComponent},
 ];
 
 @NgModule({

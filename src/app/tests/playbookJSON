@@ -1,0 +1,156 @@
+{
+    "name":"Loadouts/TFTPlaybooks/AurelionSol",
+    "itemId":27,
+    "contentId":"50fd8b01-9ae7-4f5b-8b8d-442dd690c27b",
+    "capTypeId":"",
+    "offerId":"7884cecb-11c4-4528-a34e-792e16f6ab88",
+    "alternateOfferId":"",
+    "translatedName":"Aurelion Sol: The Ancient",
+    "translatedDescription":"Become high level and play awesome units!",
+    "earlyAugments":[
+        {
+            "name":"Cutting Corners",
+            "description":"Leveling up costs @Experience@ XP less. You can now reach Level 10.",
+            "iconPath":"/lol-game-data/assets/ASSETS/Maps/TFT/Icons/Augments/ChoiceUI/Cutting-Corners-I.TFT_Set9.png",
+            "effectAmounts":[
+                {
+                    "name":"Experience",
+                    "value":3.0,
+                    "formatString":""
+                }
+            ]
+        },
+        {
+            "name":"Patient Study",
+            "description":"After player combat, gain @winxp@ XP if you won or @lossxp@ XP if you lost. You can now reach Level 10.",
+            "iconPath":"/lol-game-data/assets/ASSETS/Maps/TFT/Icons/Augments/ChoiceUI/Learning-From-Experience-II.TFT_Set9.png",
+            "effectAmounts":[
+                {
+                    "name":"WinXP",
+                    "value":2.0,
+                    "formatString":""
+                },
+                {
+                    "name":"LossXP",
+                    "value":3.0,
+                    "formatString":""
+                }
+            ]
+        },
+        {
+            "name":"Level Up!",
+            "description":"When you buy XP, gain an additional @XP@. Gain @InitialXP@ immediately. You can now reach level 10.",
+            "iconPath":"/lol-game-data/assets/ASSETS/Maps/TFT/Icons/Augments/ChoiceUI/LevelUp3.png",
+            "effectAmounts":[
+                {
+                    "name":"XP",
+                    "value":3.0,
+                    "formatString":""
+                },
+                {
+                    "name":"InitialXP",
+                    "value":4.0,
+                    "formatString":""
+                }
+            ]
+        }
+    ],
+    "midAugments":[
+        {
+            "name":"Knowledge Download I",
+            "description":"Gain @Experience@ XP.",
+            "iconPath":"/lol-game-data/assets/ASSETS/Maps/TFT/Icons/Augments/ChoiceUI/Knowledge-Download-I.TFT_Set9.png",
+            "effectAmounts":[
+                {
+                    "name":"Experience",
+                    "value":16.0,
+                    "formatString":""
+                }
+            ]
+        },
+        {
+            "name":"Knowledge Download II",
+            "description":"Gain @Experience@ XP.",
+            "iconPath":"/lol-game-data/assets/ASSETS/Maps/TFT/Icons/Augments/ChoiceUI/Knowledge-Download-II.TFT_Set9.png",
+            "effectAmounts":[
+                {
+                    "name":"Experience",
+                    "value":24.0,
+                    "formatString":""
+                }
+            ]
+        },
+        {
+            "name":"Knowledge Download III",
+            "description":"Gain @Experience@ XP.",
+            "iconPath":"/lol-game-data/assets/ASSETS/Maps/TFT/Icons/Augments/ChoiceUI/Knowledge-Download-III.TFT_Set9.png",
+            "effectAmounts":[
+                {
+                    "name":"Experience",
+                    "value":40.0,
+                    "formatString":""
+                }
+            ]
+        }
+    ],
+    "lateAugments":[
+        {
+            "name":"It Pays To Learn",
+            "description":"Gain @XP@ XP and @Gold@ gold. ",
+            "iconPath":"/lol-game-data/assets/ASSETS/Maps/TFT/Icons/Augments/ChoiceUI/It-Pays-To-Learn-I.TFT_Set9.png",
+            "effectAmounts":[
+                {
+                    "name":"XP",
+                    "value":10.0,
+                    "formatString":""
+                },
+                {
+                    "name":"Gold",
+                    "value":10.0,
+                    "formatString":""
+                }
+            ]
+        },
+        {
+            "name":"It Pays to Learn II",
+            "description":"Gain @XP@ XP and @Gold@ gold. ",
+            "iconPath":"/lol-game-data/assets/ASSETS/Maps/TFT/Icons/Augments/ChoiceUI/It-Pays-To-Learn-II.TFT_Set9.png",
+            "effectAmounts":[
+                {
+                    "name":"XP",
+                    "value":18.0,
+                    "formatString":""
+                },
+                {
+                    "name":"Gold",
+                    "value":18.0,
+                    "formatString":""
+                }
+            ]
+        },
+        {
+            "name":"It Pays to Learn III",
+            "description":"Gain @XP@ XP and @Gold@ gold. ",
+            "iconPath":"/lol-game-data/assets/ASSETS/Maps/TFT/Icons/Augments/ChoiceUI/It-Pays-To-Learn-III.TFT_Set9.png",
+            "effectAmounts":[
+                {
+                    "name":"XP",
+                    "value":24.0,
+                    "formatString":""
+                },
+                {
+                    "name":"Gold",
+                    "value":24.0,
+                    "formatString":""
+                }
+            ]
+        }
+    ],
+    "loadoutsIcon":"/lol-game-data/assets/ASSETS/UX/TFT/Playbook/Icons/Legend_LargeCircle_AurelionSol.png",
+    "enabled":true,
+    "iconPath":"/lol-game-data/assets/ASSETS/UX/TFT/Playbook/Icons/Legend_LargeCircle_AurelionSol.png",
+    "iconPathSmall":"/lol-game-data/assets/ASSETS/UX/TFT/Playbook/SmallIcons/Legend_SmallCircle_AurelionSol.png",
+    "splashPath":"/lol-game-data/assets/ASSETS/UX/TFT/Playbook/Splashes/Legend_SidePanel_AurelionSol.png",
+    "isDisabledInDoubleUp":false,
+    "isDisabledInSoulFighter":false
+}

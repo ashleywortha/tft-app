@@ -14,14 +14,16 @@ import { Trait } from '../traits/trait.model';
 })
 export class FilterChipsComponent {
   traits: Trait[] = [];
-  // champs: Champion[] = [];
   champs: any;
   filteredChamps: Champion[] = [];
   clicked: String[] = [];
 
   constructor (private http: HttpClient, private cService: ChampService, private traitService: TraitsService){}
   ngOnInit(){
-    this.champs = this.cService.getAllChamps();
+    this.champs = this.cService.getAllChamps().filter((champ:any) => {return champ.traits.length > 0});
+    // this.champs.filter((champ:any) => {
+    //   return champ.traits.length > 0;
+    // })
     this.filteredChamps = this.champs;
     console.log(this.champs);
 
@@ -58,22 +60,4 @@ export class FilterChipsComponent {
     }
 
   }
-}
-
-//helper formatting functions
-function traitIconFixer(traits: Trait[]){
-  traits.forEach(trait =>{
-    trait.icon = trait.icon.slice(0, -3)
-    trait.icon = "https://raw.communitydragon.org/latest/game/" + trait.icon + "png";
-    trait.icon = trait.icon.toLowerCase();
-  })
-}
-
-
-function champIconFixer(champs: Champion[]){
-  champs.forEach(champ=>{
-    champ.icon = champ.icon.slice(0, -3)
-    champ.icon = "https://raw.communitydragon.org/latest/game/" + champ.icon + "png";
-    champ.icon = champ.icon.toLowerCase();
-  })
 }

@@ -28,6 +28,7 @@ import { AugmentsComponent } from './augments/augments.component';
 import { TeamBuilderComponent } from './team-builder/team-builder.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { HexagonComponent } from './hexagon/hexagon.component';
+import { PlaybooksComponent } from './playbooks/playbooks.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { HexagonComponent } from './hexagon/hexagon.component';
     AugmentsComponent,
     TeamBuilderComponent,
     HexagonComponent,
+    PlaybooksComponent,
   ],
   imports: [
     BrowserModule,
