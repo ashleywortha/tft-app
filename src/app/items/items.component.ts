@@ -14,14 +14,14 @@ export class ItemsComponent {
   filteredItems: Item[] = [];
   combinedColumns: string[] =['item', 'desc', 'recipe']
 
-  // combinedItems:Item[] = [];
-  // basicColumns: string[] = ['item', 'desc', 'combined']
-  constructor (private http: HttpClient, private itemsService: ItemsService){}
+  constructor (private itemsService: ItemsService){}
   ngOnInit(){
-    this.items = this.itemsService.getAllItems();
+    this.itemsService.items$.subscribe(item => {
+      this.items = item;
+      this.filteredItems = item;
+    })
+    this.itemsService.getAllItems();
     console.log(this.items)
-    this.filteredItems = this.items;
-    // this.items.forEach(i => {console.log(i.icon)})
   }
 
 

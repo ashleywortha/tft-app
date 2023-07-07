@@ -13,16 +13,21 @@ export class SynergiesComponent {
   @Input() cName: String = "";
   sChamps: Champion[] = [];
   @Output() newChampEvent = new EventEmitter<Champion>();
-  allChamps = this.champService.getAllChamps();
+  allChamps: Champion[] = [];
 
   constructor(private champService: ChampService){}
 
   ngOnChanges(){
+    this.champService.champs$.subscribe(champ => {
+      this.allChamps = champ;
+    })
+    this.champService.getAllChamps();
     if(this.cTraits.length <= 0) {
-      // this.sChamps = [];
       this.cTraits = [this.cTrait];
     }
+
     this.sChamps = [];
+
     this.cTraits.forEach(trait => {
       this.sChamps =  this.sChamps.concat(this.allChamps.filter((champ:any) => {
         if(champ.name !== this.cName){

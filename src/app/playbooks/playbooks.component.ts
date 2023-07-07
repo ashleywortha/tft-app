@@ -13,7 +13,10 @@ export class PlaybooksComponent {
 
   constructor(private playbookService: PlaybookService){}
   ngOnInit(){
-    this.playbooks = this.playbookService.getAllPlaybooks();
+    this.playbookService.playbooks$.subscribe(playbook => {
+      this.playbooks = playbook;
+    })
+    this.playbookService.getAllPlaybooks();
     console.log(this.playbooks);
   }
 

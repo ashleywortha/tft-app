@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 import { Champion } from "../champs/champion.model";
 import { Data } from "../dataModels/data.model";
 
@@ -11,30 +11,22 @@ import { Data } from "../dataModels/data.model";
 export class ChampService{
     private champs: string = "allChamps";
     private currentChamp: string = "champ"
+    champs$ = new BehaviorSubject<Champion[]>([])
     constructor(private http: HttpClient){}
     
-    setAllChamps(){
-        this.http.get<Data>('https://raw.communitydragon.org/latest/cdragon/tft/en_us.json')
-    .subscribe(data=> {
-      //getting champs
-      let champArr = data.sets[9].champions;
-      champIconFixer(champArr);
-      champAbilityIconFixer(champArr);
-      localStorage.setItem(this.champs, JSON.stringify(champArr))
-
-    })
-    }
 
     getAllChamps(){
-        let champs = JSON.parse(localStorage.getItem(this.champs) || "[]");
-        console.log(champs)
-        return champs;
+      this.http.get<Data>('https://raw.communitydragon.org/latest/cdragon/tft/en_us.json')
+      .subscribe(res => {
+        let champArr = res.sets[9].champions;
+        champIconFixer(champArr);
+        champAbilityIconFixer(champArr);
+        champArr = champArr.filter((champ:Champion) => {return champ.traits.length > 0})
+        this.champs$.next(champArr);
+      })
     }
 
-    async testgetAllChamps(){
-      let champs = JSON.parse(localStorage.getItem(this.champs) || "[]");
-      return champs;
-  }
+   
 
     getCurrentChamp(){
         let champ = localStorage.getItem(this.currentChamp);
@@ -53,6 +45,7 @@ export class ChampService{
         name = name.replace(/%20/g, " ");
       }
         let champs = JSON.parse(localStorage.getItem(this.champs) || "[]");
+  
         return champs.filter((champ:any) => {return champ.name == name});
     }
 }

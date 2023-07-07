@@ -18,16 +18,18 @@ export class FilterChipsComponent {
   filteredChamps: Champion[] = [];
   clicked: String[] = [];
 
-  constructor (private http: HttpClient, private cService: ChampService, private traitService: TraitsService){}
+  constructor (private cService: ChampService, private traitService: TraitsService){}
   ngOnInit(){
-    this.champs = this.cService.getAllChamps().filter((champ:any) => {return champ.traits.length > 0});
-    // this.champs.filter((champ:any) => {
-    //   return champ.traits.length > 0;
-    // })
-    this.filteredChamps = this.champs;
-    console.log(this.champs);
+   this.cService.champs$.subscribe(champ =>{
+      this.champs = champ;
+      this.filteredChamps = champ;
+    })
+    this.cService.getAllChamps();
 
-    this.traits = this.traitService.getAllTraits();
+    this.traitService.traits$.subscribe(trait => {
+      this.traits = trait;
+    })
+    this.traitService.getAllTraitsrxJS();
     console.log(this.traits);
   }
 

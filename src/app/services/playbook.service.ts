@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Playbook } from "../dataModels/playbook.model";
+import { BehaviorSubject } from "rxjs";
 
 @Injectable({
     providedIn:'root'
@@ -9,21 +10,17 @@ import { Playbook } from "../dataModels/playbook.model";
 export class PlaybookService{
     private playbooks: string ="allPlaybooks";
     private currentPlaybook: string = "playbook";
+    playbooks$ = new BehaviorSubject<Playbook[]>([]);
+
     constructor(private http:HttpClient){}
 
-    setAllPlaybooks(){
+    getAllPlaybooks(){
         this.http.get<Playbook[]>('https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/tftplaybooks.json')
         .subscribe(data => {
-            console.log(data)
-            let playBookArr = data
-            playbookIconFixer(playBookArr);
-            localStorage.setItem(this.playbooks, JSON.stringify(playBookArr))
+            let playbookArr = data;
+            playbookIconFixer(playbookArr);
+            this.playbooks$.next(playbookArr);
         })
-    }
-
-    getAllPlaybooks(){
-        let playbooks = JSON.parse(localStorage.getItem(this.playbooks) || "[]");
-        return playbooks;
     }
 
 }

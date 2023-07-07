@@ -11,11 +11,7 @@ import { PlaybookService } from './services/playbook.service';
 })
 export class AppComponent {
   title = 'tft-app';
-  constructor(private champService: ChampService, private traitsService: TraitsService, private itemsService: ItemsService, private playbookService: PlaybookService){}
-  async ngOnInit(){
-    await this.champService.setAllChamps();
-    await this.traitsService.setAllTraits();
-    await this.itemsService.setAllItems();
-    await this.playbookService.setAllPlaybooks();
+  constructor(){}
+  ngOnInit(){
   }
 }
