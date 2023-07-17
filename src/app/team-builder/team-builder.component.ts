@@ -1,5 +1,7 @@
-import { CdkDrag, CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { ChampService } from '../services/champ.service';
+import { Champion } from '../champs/champion.model';
 
 @Component({
   selector: 'app-team-builder',
@@ -7,82 +9,38 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
   styleUrls: ['./team-builder.component.scss']
 })
 export class TeamBuilderComponent {
-  @ViewChild('canvas', {static: true}) myCanvas! : ElementRef;
-  board = ['champ2'];
-  champs = ['champ1','champ3'];
- //PLAN OF ACTION
-  // List 1 is the list of champion icons but when you scroll over them 
-  // they have a custom preview -- they are also disabled for sorting
+  allChamps: Champion[] = [];
+  boardChamps: Champion[] = []
+  currentChamps: Champion[] = [];
 
-  // List 2-28 are separate sorting groups with a predecate (only has one)
-  //in the list at a time -- change the css to be the hexagon shape for the 
-  // icon 
+  /*Todos V1
+  GOAL: Drag and drop champions onto the field
+  1. Make champion select group and sort (traits(checkbox), cost) 
+  2. Make champions drag and droppable into the team builder thing
+  3. Create real team builder view (field)
+  4. Refactor drag and drop so you can drag champs onto the field
+  */
 
-  all = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  even = [10];
-
-  // drop(event: CdkDragDrop<number[]>) {
-  //   if (event.previousContainer === event.container) {
-  //     moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-  //   } else {
-  //     transferArrayItem(
-  //       event.previousContainer.data,
-  //       event.container.data,
-  //       event.previousIndex,
-  //       event.currentIndex,
-  //     );
-  //   }
-  // }
-
-  /** Predicate function that only allows even numbers to be dropped into a list. */
-  evenPredicate(item: CdkDrag<number>) {
-    return item.data % 2 === 0;
+  constructor(private champService: ChampService){}
+ 
+  ngOnInit(){
+    this.champService.champs$.subscribe(champ => {
+      this.allChamps = champ;
+    })
+    this.champService.getAllChamps()
   }
 
-  /** Predicate function that doesn't allow items to be dropped into a list. */
-  noReturnPredicate() {
-    return false;
+  drag(ev:any){
+    ev.dataTransfer.setData("text", ev.target.id);
   }
 
-  todo = [
-    ''
-  ];
-
-  done = [
-    ''
-  ];
-
-  review = [
-    'Take bath',
-    'Wash car',
-    'Get up',
-    'Brush teeth',
-    'Take a shower',
-    'Check e-mail',
-    'Walk dog',
-    'Get to work',
-    'Pick up groceries',
-    'Go home',
-    'Fall asleep'
-  ];
-
-  drop(event: CdkDragDrop<string[]>) {
-    console.log(event);
-    if(event.container.data.length >= 1){ 
-      // transferArrayItem(event.previousContainer)
-    }
-    else{
-      if (event.previousContainer === event.container) {
-        moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-      } else {
-        transferArrayItem(event.previousContainer.data,
-          event.container.data,
-          event.previousIndex,
-          event.currentIndex);
-      }
-    }
-    
+  drop(ev:any){
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
   }
 
-
+  allowDrop(ev:any){
+    ev.preventDefault();
+  }
 }

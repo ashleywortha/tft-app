@@ -1,1 +1,7 @@
-<div class="hexagon" [style.background]="'url('+ champImage +') no-repeat'"></div>
+<div 
+class="hexagon" 
+(drop)="drop($event)"
+(dragover)="allowDrop($event)">
+</div>
+
+<!-- [style.background]="'url('+ champImage +') no-repeat'" -->

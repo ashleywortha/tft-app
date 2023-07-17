@@ -29,6 +29,13 @@ import { TeamBuilderComponent } from './team-builder/team-builder.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { HexagonComponent } from './hexagon/hexagon.component';
 import { PlaybooksComponent } from './playbooks/playbooks.component';
+import { AdvancedFilterComponent } from './advanced-filter/advanced-filter.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +54,7 @@ import { PlaybooksComponent } from './playbooks/playbooks.component';
     TeamBuilderComponent,
     HexagonComponent,
     PlaybooksComponent,
+    AdvancedFilterComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +69,15 @@ import { PlaybooksComponent } from './playbooks/playbooks.component';
     MatChipsModule,
     MatButtonModule,
     MatTableModule,
-    DragDropModule
+    DragDropModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatButtonToggleModule,
+    MatSlideToggleModule
+    
+
 
   ],
   providers: [],

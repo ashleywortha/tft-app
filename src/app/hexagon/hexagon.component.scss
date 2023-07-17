@@ -1,18 +1,30 @@
-.hexagon {
-    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-    // background: url("https://i.imgur.com/waDgcnc.jpg") no-repeat;
-    background-size: cover;
-    margin: 10px auto;
-    height: 200px;
-    width: 200px;      
-  }
+// .hexagon {
+//     clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+//     // background: url("https://i.imgur.com/waDgcnc.jpg") no-repeat;
+//     background-size: cover;
+//     margin: 10px auto;
+//     height: 200px;
+//     width: 200px;   
+//     background: #ccc; 
+//   }
 
-  .hexagon-outer {
-    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-    background: black;
-    background-size: cover;
-    margin: 10px auto;
-    height: 250px;
-    width: 250px;      
-  }
+  // .hexagon-outer {
+  //   clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  //   background: black;
+  //   background-size: cover;
+  //   margin: 10px auto;
+  //   height: 250px;
+  //   width: 250px;      
+  // }
+
+
+.hexagon {
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  background-size: cover;
+  margin: 10px;
+  min-width: 100px;
+  height: 100px;
+  width: 100px; 
+  background: #ccc;  
+}
 

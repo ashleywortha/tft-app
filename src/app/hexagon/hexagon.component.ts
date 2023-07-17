@@ -6,10 +6,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./hexagon.component.scss']
 })
 export class HexagonComponent {
-  champImage = "https://i.imgur.com/waDgcnc.jpg";
+  champImage = "";
 
   updateImage(newImage:string){
     this.champImage = newImage;
+  }
+
+  allowDrop(ev: any){
+    ev.preventDefault();
+  }
+
+  drop(ev:any){
+    ev.preventDefault();
+    if(ev.srcElement.childElementCount < 1){
+      var data = ev.dataTransfer.getData("text");
+      ev.target.appendChild(document.getElementById(data));
+    }
+    
   }
 
 
