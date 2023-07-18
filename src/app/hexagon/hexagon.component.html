@@ -1,7 +1,7 @@
 <div 
 class="hexagon" 
 (drop)="drop($event)"
-(dragover)="allowDrop($event)">
+(dragover)="allowDrop($event)"
+[style.background]="(champImage === '') ? '#ccc' : 'url(' + champImage + ') no-repeat'"
+>
 </div>
-
-<!-- [style.background]="'url('+ champImage +') no-repeat'" -->

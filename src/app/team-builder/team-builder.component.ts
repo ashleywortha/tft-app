@@ -13,12 +13,12 @@ export class TeamBuilderComponent {
   boardChamps: Champion[] = []
   currentChamps: Champion[] = [];
 
-  /*Todos V1
+  /*Todos V2
   GOAL: Drag and drop champions onto the field
   1. Make champion select group and sort (traits(checkbox), cost) 
-  2. Make champions drag and droppable into the team builder thing
-  3. Create real team builder view (field)
-  4. Refactor drag and drop so you can drag champs onto the field
+  2. Make it so only 11 Champs can be on the board at a time
+  3. Image fills hexagon on drop
+  4. Champ Pool is in rows, names below them
   */
 
   constructor(private champService: ChampService){}
