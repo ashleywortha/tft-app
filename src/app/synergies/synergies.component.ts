@@ -17,11 +17,15 @@ export class SynergiesComponent {
 
   constructor(private champService: ChampService){}
 
+
   ngOnChanges(){
     this.champService.champs$.subscribe(champ => {
       this.allChamps = champ;
     })
     this.champService.getAllChamps();
+
+    console.log(this.allChamps)
+
     if(this.cTraits.length <= 0) {
       this.cTraits = [this.cTrait];
     }
@@ -40,7 +44,6 @@ export class SynergiesComponent {
 
   setChampPage(champ: Champion){
     this.champService.setCurrentChamp(champ);
-    // console.log(this.champService.getCurrentChamp())
     this.newChampEvent.emit(champ);
   }
 

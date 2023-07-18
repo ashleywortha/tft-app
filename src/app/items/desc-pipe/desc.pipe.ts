@@ -17,7 +17,6 @@ export class DescPipe implements PipeTransform {
     newStr = newStr.replace("</tftitemrules>", "")
     newStr = newStr.replace(/%.*?%/, "");
 
-
     return newStr;
   }
 

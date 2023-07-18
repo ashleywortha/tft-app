@@ -40,7 +40,6 @@ export class ChampService{
     }
 
     getChampByName(name: any){
-      console.log(name);
       if(name.includes("%20")){
         name = name.replace(/%20/g, " ");
       }
