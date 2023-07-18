@@ -18,7 +18,7 @@ export class AbilitiesPipe implements PipeTransform {
     */
    var newStr = value;
    var levelElms = "";
-   console.log(value)
+  //  console.log(value)
    //replace @v.name@ with v.value[0] if the array has the same number
     variables.forEach(v => {
       if(v.value[1] == v.value[2]){
@@ -43,7 +43,7 @@ export class AbilitiesPipe implements PipeTransform {
       // var re = "by %"
       // newStr = newStr.replace(re, "")
 
-    console.log(newStr);
+    // console.log(newStr);
     return newStr;
   }
 

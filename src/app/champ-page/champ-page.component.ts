@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Champion } from '../champs/champion.model';
 import { ChampService } from '../services/champ.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-champ-page',
@@ -25,10 +26,15 @@ export class ChampPageComponent {
 
   }
 
-  constructor(private champService: ChampService, private router: Router){}
+  constructor(private champService: ChampService, private router: Router, private route:ActivatedRoute){}
   ngOnInit(){
-    let name = this.router.url.split('/').pop();
-    this.champ = this.champService.getChampByName(name)[0];
+    this.route.paramMap.subscribe(
+      (routeParam) => {
+        const name = routeParam.get('name');
+        this.champ = this.champService.getChampByName(name)[0]
+      },
+      (err) => {}
+    )
 
   }
 
