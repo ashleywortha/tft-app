@@ -17,7 +17,11 @@ export class ItemsService{
             itemIconFixer(itemsArr);
             itemsArr = itemsArr.filter(i => {
                 return (i.apiName.includes("TFT_Item")
-                        || i.apiName.includes("TFT9_Item"))
+                        || i.apiName.includes("TFT9_Item")
+                        || i.apiName.includes("TFT9_Consumable")
+                        || i.apiName.includes("_Item_Shimmerscale")
+                        || i.apiName.includes("Item_Ornn")
+                        || (i.apiName.includes('Radiant') && i.apiName.includes('Item_')))
                         && !i.apiName.includes("_Grant") 
                         && !(i.name === null)
                         && !i.name.includes("_")

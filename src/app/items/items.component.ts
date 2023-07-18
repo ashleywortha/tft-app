@@ -33,25 +33,29 @@ export class ItemsComponent {
        
       case "basic":
         this.filteredItems = this.items.filter(i => {
-          return (i.composition.length <= 0
-            && !i.apiName.includes("GenAE")
-            && !i.desc.includes("Aphelios")
-            && !i.desc.includes("_")
-            && !i.apiName.includes("Free")
-            && i.unique == false
-            && !(Object.keys(i.effects).length === 0)
-            )
+          return (
+            i.name == "Chain Vest" ||
+            i.name == "Recursive Bow" ||
+            i.name == "Tear of the Goddess" ||
+            i.name == "Negatron Cloak" ||
+            i.name == "Sparring Gloves" ||
+            i.apiName == "TFT_Item_Spatula" ||
+            i.name == "Giant's Belt" ||
+            i.name == "Needlessly Large Rod"
+          )
         })
-
         return;
 
       case "combined":
         this.filteredItems = this.items.filter(i => {
-          return i.composition.length > 0;
+          return i.composition.length > 0 && !(i.apiName.includes("Shimmerscale"));
         })
         return;
 
       case "consume":
+        this.filteredItems = this.items.filter(i => {
+          return i.apiName.includes("Consumable");
+        })
         return;
 
       case "nocraft":
@@ -62,15 +66,23 @@ export class ItemsComponent {
         return;
 
       case "ornn":
+        this.filteredItems = this.items.filter(i => {
+          return i.apiName.includes('Item_Ornn');
+        })
         return;
 
-      case "gadge":
+      case "shimmerscale":
         this.filteredItems = this.items.filter(i => {
-          return i.apiName.includes("GenAE") && !i.apiName.includes("Emblem")
+          return i.apiName.includes("Shimmerscale") 
+          && !(i.apiName.includes("_HR"))
+          && !(i.apiName.includes("Emblem"))
         })
         return;
 
       case "radiant":
+        this.filteredItems = this.items.filter(i => {
+          return i.apiName.includes("Radiant")
+        })
         return;
 
       default:
