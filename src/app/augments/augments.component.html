@@ -1,1 +1,35 @@
-<p>augments works!</p>
+<mat-chip-listbox>
+    <mat-chip-option selected (click)="filterAugments('all')">All Augments</mat-chip-option>
+    <mat-chip-option (click)="filterAugments('tier1')">Tier 1</mat-chip-option>
+    <mat-chip-option (click)="filterAugments('tier2')">Tier 2</mat-chip-option>
+    <mat-chip-option (click)="filterAugments('tier3')">Tier 3</mat-chip-option>
+</mat-chip-listbox>
+
+<table mat-table [dataSource]="filteredAugments" class="mat-elevation-z8">
+    <ng-container matColumnDef="augment">
+        <th mat-header-cell *matHeaderCellDef>Augment</th>
+        <td mat-cell *matCellDef="let augment">
+            <img [src]="augment.icon" [alt]="augment.name">
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let augment">
+            {{augment.name}}
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="tier">
+        <th mat-header-cell *matHeaderCellDef>Tier</th>
+        <td mat-cell *matCellDef="let augment">
+            {{augment.tier}}
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="desc">
+        <th mat-header-cell *matHeaderCellDef>Augment Bonus</th>
+        <td mat-cell *matCellDef="let augment" >
+            {{augment.desc | desc:(augment.effects)}}
+        </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="combinedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns:combinedColumns;"></tr>
+</table>

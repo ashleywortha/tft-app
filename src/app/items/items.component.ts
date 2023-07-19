@@ -12,7 +12,7 @@ import { Item } from './item.model';
 export class ItemsComponent {
   items: Item[] = [];
   filteredItems: Item[] = [];
-  combinedColumns: string[] =['item', 'desc', 'recipe']
+  combinedColumns: string[] =['item', 'name', 'desc', 'recipe']
 
   constructor (private itemsService: ItemsService){}
   ngOnInit(){

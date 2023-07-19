@@ -6,4 +6,5 @@ export interface Item{
     icon: String,
     name: String,
     unique: boolean,
+    tier: String
 }
