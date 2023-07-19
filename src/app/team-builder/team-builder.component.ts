@@ -12,6 +12,8 @@ export class TeamBuilderComponent {
   allChamps: Champion[] = [];
   boardChamps: Champion[] = []
   currentChamps: Champion[] = [];
+  currentChamp: String = "";
+  
 
   /*Todos V2
   GOAL: Drag and drop champions onto the field
@@ -38,6 +40,8 @@ export class TeamBuilderComponent {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
+    this.currentChamp = data;
+    console.log(ev)
   }
 
   allowDrop(ev:any){

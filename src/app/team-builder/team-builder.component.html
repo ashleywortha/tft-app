@@ -1,41 +1,4 @@
-
-<div class="tft-board">
-  <app-hexagon id="1"></app-hexagon>
-  <app-hexagon id="2"></app-hexagon>
-  <app-hexagon id="3"></app-hexagon>
-  <app-hexagon id="4"></app-hexagon>
-  <app-hexagon id="5"></app-hexagon>
-  <app-hexagon id="6"></app-hexagon>
-  <app-hexagon id="7"></app-hexagon>
-</div>
-<div class="tft-board" style="position:relative; left:60px;">
-  <app-hexagon id="1"></app-hexagon>
-  <app-hexagon id="2"></app-hexagon>
-  <app-hexagon id="3"></app-hexagon>
-  <app-hexagon id="4"></app-hexagon>
-  <app-hexagon id="5"></app-hexagon>
-  <app-hexagon id="6"></app-hexagon>
-  <app-hexagon id="7"></app-hexagon>
-</div>
-<div class="tft-board">
-  <app-hexagon id="8"></app-hexagon>
-  <app-hexagon id="9"></app-hexagon>
-  <app-hexagon id="10"></app-hexagon>
-  <app-hexagon id="11"></app-hexagon>
-  <app-hexagon id="12"></app-hexagon>
-  <app-hexagon id="13"></app-hexagon>
-  <app-hexagon id="14"></app-hexagon>
-</div>
-<div class="tft-board" style="position:relative; left:60px;">
-  <app-hexagon id="15"></app-hexagon>
-  <app-hexagon id="16"></app-hexagon>
-  <app-hexagon id="17"></app-hexagon>
-  <app-hexagon id="18"></app-hexagon>
-  <app-hexagon id="19"></app-hexagon>
-  <app-hexagon id="20"></app-hexagon>
-  <app-hexagon id="21"></app-hexagon>
-</div>
-
+<app-tft-board [exitChamp]="currentChamp"></app-tft-board>
 
 <div (drop)="drop($event)" (dragover)="allowDrop($event)"*ngFor="let champ of allChamps">
   <img id={{champ.name}} class="cropped" draggable="true" (dragstart)="drag($event)" mat-card-avatar [src]="champ.icon" [alt]="champ.name">

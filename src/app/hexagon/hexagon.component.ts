@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ChampService } from '../services/champ.service';
 
 @Component({
@@ -8,6 +8,9 @@ import { ChampService } from '../services/champ.service';
 })
 export class HexagonComponent {
   champImage = "";
+  @Input() boardPop:String[] = [];
+  @Output() addPop = new EventEmitter<string>();
+
   
   constructor(private champService: ChampService){}
 
@@ -22,11 +25,16 @@ export class HexagonComponent {
 
   drop(ev:any){
     ev.preventDefault();
-    if(ev.srcElement.childElementCount < 1){
+    if(ev.srcElement.childElementCount < 1 && this.boardPop.length < 11){
       var data = ev.dataTransfer.getData("text");
       ev.target.appendChild(document.getElementById(data));
       this.updateImage(data);
+      this.addPop.emit(ev);
     } 
+  }
+
+  notifyMe(){
+    console.log('EventChange')
   }
 
 
