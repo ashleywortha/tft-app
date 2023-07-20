@@ -18,7 +18,6 @@ export class TeamBuilderComponent {
   /*Todos V2
   GOAL: Drag and drop champions onto the field
   1. Make champion select group and sort (traits(checkbox), cost) 
-  2. Make it so only 11 Champs can be on the board at a time
   3. Image fills hexagon on drop
   4. Champ Pool is in rows, names below them
   */

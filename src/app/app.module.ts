@@ -36,6 +36,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { TftBoardComponent } from './tft-board/tft-board.component';
+import { PortalsComponent } from './portals/portals.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { TftBoardComponent } from './tft-board/tft-board.component';
     PlaybooksComponent,
     AdvancedFilterComponent,
     TftBoardComponent,
+    PortalsComponent,
   ],
   imports: [
     BrowserModule,

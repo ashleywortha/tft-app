@@ -1,0 +1,43 @@
+<mat-chip-listbox>
+    <mat-chip-option selected (click)="filterPortals('all')">All Portals</mat-chip-option>
+    <mat-chip-option (click)="filterPortals('bandle')">Bandle City</mat-chip-option>
+    <mat-chip-option (click)="filterPortals('demacia')">Demacia</mat-chip-option>
+    <mat-chip-option (click)="filterPortals('freljord')">Freljord</mat-chip-option>
+    <mat-chip-option (click)="filterPortals('ionia')">Ionia</mat-chip-option>
+    <mat-chip-option (click)="filterPortals('noxus')">Noxus</mat-chip-option>
+    <mat-chip-option (click)="filterPortals('piltover')">Piltover</mat-chip-option>
+    <mat-chip-option (click)="filterPortals('shadow')">Shadow Isles</mat-chip-option>
+    <mat-chip-option (click)="filterPortals('shurima')">Shurima</mat-chip-option>
+    <mat-chip-option (click)="filterPortals('targon')">Targon</mat-chip-option>
+    <mat-chip-option (click)="filterPortals('void')">Void</mat-chip-option>
+    <mat-chip-option (click)="filterPortals('zaun')">Zaun</mat-chip-option>
+</mat-chip-listbox>
+
+<table mat-table [dataSource]="filteredPortals" class="mat-elevation-z8">
+    <ng-container matColumnDef="portal">
+        <th mat-header-cell *matHeaderCellDef>Portal</th>
+        <td mat-cell *matCellDef="let portal">
+            <img [src]="portal.iconPath" [alt]="portal.description">
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let portal">
+            {{portal.description}}
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="region">
+        <th mat-header-cell *matHeaderCellDef>Region</th>
+        <td mat-cell *matCellDef="let portal">
+            {{portal.displayName}}
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="desc">
+        <th mat-header-cell *matHeaderCellDef>Portal Effect</th>
+        <td mat-cell *matCellDef="let portal">
+            {{portal.effects}}
+        </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="combinedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns:combinedColumns"></tr>
+</table>
