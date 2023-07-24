@@ -32,6 +32,7 @@ export class ChampPageComponent {
       (routeParam) => {
         const name = routeParam.get('name');
         this.champ = this.champService.getChampByName(name)[0]
+        console.log(this.champ)
       },
       (err) => {}
     )
