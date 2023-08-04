@@ -1,5 +1,6 @@
 <app-tft-board [exitChamp]="currentChamp"></app-tft-board>
 
+<app-advanced-filter></app-advanced-filter>
 <div (drop)="drop($event)" (dragover)="allowDrop($event)"*ngFor="let champ of allChamps">
   <img id={{champ.name}} class="cropped" draggable="true" (dragstart)="drag($event)" mat-card-avatar [src]="champ.icon" [alt]="champ.name">
 </div>

@@ -37,6 +37,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { TftBoardComponent } from './tft-board/tft-board.component';
 import { PortalsComponent } from './portals/portals.component';
+import { HexBgDirective } from './hexagon/hexBg.directive';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { PortalsComponent } from './portals/portals.component';
     AdvancedFilterComponent,
     TftBoardComponent,
     PortalsComponent,
+    HexBgDirective
   ],
   imports: [
     BrowserModule,

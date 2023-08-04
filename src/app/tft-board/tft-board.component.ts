@@ -8,7 +8,9 @@ import { HexagonComponent } from '../hexagon/hexagon.component';
 })
 export class TftBoardComponent {
   boardPop:String[] = [];
+
   @Input() set exitChamp(exitChamp:String){
+    console.log("exit champ is " + exitChamp)
     const index: number = this.boardPop.indexOf(exitChamp);
     if(index !== -1){
       this.boardPop.splice(index, 1);

@@ -1,4 +1,9 @@
 # TftApp
+Practice Project to learn more about Angular by creating a web application for viewing current Team Fight Tactics (TFT)  gmae information along with a team builder.
+
+Data for this application is provided by CommunityDragon https://www.communitydragon.org/
+
+Layouts and functionality are inspired by Mobalytics https://app.mobalytics.gg/tft 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.2.
 

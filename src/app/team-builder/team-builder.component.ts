@@ -2,6 +2,7 @@ import { CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray, transferArrayItem }
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ChampService } from '../services/champ.service';
 import { Champion } from '../champs/champion.model';
+import { HexagonComponent } from '../hexagon/hexagon.component';
 
 @Component({
   selector: 'app-team-builder',
@@ -13,7 +14,8 @@ export class TeamBuilderComponent {
   boardChamps: Champion[] = []
   currentChamps: Champion[] = [];
   currentChamp: String = "";
-  
+  // @ViewChild('appHexagon', { static: false }) appHexagon!: HexagonComponent;
+  //https://stackoverflow.com/questions/60565421/angular-8-drag-drop-dragover-dragleave-events-not-firing
 
   /*Todos V2
   GOAL: Drag and drop champions onto the field
