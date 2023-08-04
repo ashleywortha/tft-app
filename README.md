@@ -1,5 +1,5 @@
 # TftApp
-Practice Project to learn more about Angular by creating a web application for viewing current Team Fight Tactics (TFT)  gmae information along with a team builder.
+Practice Project to learn more about Angular by creating a web application for viewing current Team Fight Tactics (TFT)  game information along with a team builder.
 
 Data for this application is provided by CommunityDragon https://www.communitydragon.org/
 
